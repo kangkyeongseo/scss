@@ -1,4 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap");
 @import "_variables.scss";
+@import "_grid-box.scss";
 
 * {
   box-sizing: border-box;
@@ -10,73 +12,189 @@ a {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 header {
-  width: 100%;
   position: fixed;
   top: 0;
+  width: 100%;
   background-color: white;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  font-size: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28px;
+  padding: 25px 30px;
   .header__column {
-    padding: 10px;
     display: flex;
-    .column__first {
-      display: flex;
+    align-items: flex-start;
+    span {
+      font-size: 50px;
+      font-weight: 700;
+      padding: 0px 70px 0 35px;
+    }
+  }
+}
 
-      .column__title {
-        margin-right: 115px;
-      }
-      .column__nav {
-        opacity: 0.2;
-        li {
-          margin-right: 55px;
+.main__bnn {
+  width: 97vh;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 40px 0px 70px 0px;
+  img {
+    width: 100%;
+  }
+}
+
+.news {
+  padding: $defaultSpace;
+  position: relative;
+  margin-bottom: 150px;
+  .news__header {
+    display: flex;
+    justify-content: center;
+    font-size: 34px;
+    letter-spacing: 1px;
+    margin-bottom: 120px;
+  }
+  .news__content {
+    font-weight: 300;
+    p {
+      font-size: 38px;
+      line-height: 1.2;
+      margin-bottom: 30px;
+    }
+    a {
+      font-size: 28px;
+    }
+  }
+  .fa-arrow-down {
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    font-size: 24px;
+  }
+}
+
+.sub__bnn {
+  padding: $defaultSpace;
+  section {
+    grid-template-columns: 1fr 1fr;
+    @extend %gridBox;
+    &:nth-child(2) {
+      .bnn__column {
+        &:nth-child(2) {
+          order: -1;
         }
       }
     }
-    .column__info {
-      li {
-        margin-right: 55px;
-      }
-    }
-    .column__lan {
-      font-size: 12px;
-      margin-bottom: 5px;
-    }
-    ul {
+    .bnn__column {
       display: flex;
+      flex-direction: column;
     }
-    &:nth-child(2) {
-      justify-content: space-between;
-      align-items: flex-end;
+    h3 {
+      font-size: 24px;
+      margin-bottom: 50px;
     }
-    &:hover {
-      background-color: rgba($color: #000000, $alpha: 0.1);
-      .column__nav {
-        opacity: 1;
-        color: white;
+    p {
+      width: 85%;
+      font-size: 38px;
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 50px;
+    }
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.sub__bnn--img {
+  section {
+    .bnn__column {
+      h3 {
+        margin-bottom: 40px;
+      }
+      p {
+        font-size: 24px;
+        margin-top: 20px;
+        margin-bottom: 40px;
       }
     }
   }
 }
 
-main {
-  margin-top: 50px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  section {
-    .section__title {
-      font-size: 14px;
-      padding: 5px 10px;
-    }
-    a {
-      img {
-        width: 100%;
+.sub__text {
+  @extend %gridBox;
+  margin: $defaultSpace;
+  h3 {
+    font-size: 24px;
+    margin-bottom: 50px;
+  }
+  p {
+    width: 85%;
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 50px;
+  }
+}
+
+.sub__texts {
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 100px;
+  p {
+    font-size: 24px;
+  }
+}
+
+footer {
+  background-color: #464646;
+  padding: 40px 320px 0 320px;
+  color: white;
+  .footer__header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-weight: 300;
+    margin-bottom: 100px;
+    .header__column {
+      h3 {
+        font-size: 28px;
+        font-weight: 400;
       }
+      ul {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+  .footer__content {
+    .content__column {
+      display: flex;
+      flex-direction: column;
+      font-weight: 300;
+      padding-bottom: 30px;
+      span {
+        display: block;
+        padding-bottom: 5px;
+      }
+    }
+  }
+}
+
+.bnn__button {
+  display: flex;
+  .button {
+    letter-spacing: 1.5px;
+    padding: 10px 30px;
+    border-radius: 30px;
+    border: 1px solid rgba($color: #000000, $alpha: 0.1);
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      color: white;
+      background-color: #000000;
     }
   }
 }
